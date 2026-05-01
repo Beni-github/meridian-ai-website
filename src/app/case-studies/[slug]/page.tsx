@@ -145,7 +145,7 @@ export default async function CaseStudyPage({ params }: { params: Promise<{ slug
             <div className="space-y-8">
               {/* Quote */}
               <div className="bg-brand-50 border border-brand-100 rounded-xl p-6">
-                <blockquote className="text-gray-700 italic mb-4">"{study.quote}"</blockquote>
+                <blockquote className="text-gray-700 italic mb-4">&ldquo;{study.quote}&rdquo;</blockquote>
                 <div>
                   <p className="font-semibold text-gray-900">{study.author}</p>
                   <p className="text-sm text-gray-500">{study.role}</p>

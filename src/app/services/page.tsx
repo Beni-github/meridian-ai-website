@@ -166,7 +166,7 @@ export default function ServicesPage() {
       <section id="contact" className="py-20 px-6 bg-brand-700 text-white">
         <div className="max-w-2xl mx-auto text-center">
           <h2 className="text-3xl font-bold mb-4">Ready to Get Started?</h2>
-          <p className="text-brand-100 mb-8">Send us a message and we'll get back to you within 2 hours with a custom proposal.</p>
+          <p className="text-brand-100 mb-8">Send us a message and we&apos;ll get back to you within 2 hours with a custom proposal.</p>
           <a
             href="mailto:hello@meridianai.co?subject=Service%20Inquiry&body=Hi%20Meridian%20AI%2C%0A%0AI'm%20interested%20in%20learning%20more%20about%20your%20services.%0A%0AMy%20business%3A%20%0A%0AWhat%20service(s)%20are%20you%20interested%20in%3F%20Web%20Design%20%7C%20Local%20SEO%20%7C%20AI%20Agents%0A%0A"
             className="inline-flex items-center gap-2 bg-white text-brand-700 font-semibold px-8 py-4 rounded-lg hover:bg-brand-50 transition-colors"

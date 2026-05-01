@@ -69,7 +69,7 @@ export default function CaseStudiesPage() {
           <p className="text-brand-200 font-semibold uppercase tracking-wider text-sm mb-4">Case Studies</p>
           <h1 className="text-4xl md:text-5xl font-bold mb-6">Real Results for Real Businesses</h1>
           <p className="text-xl text-brand-100 max-w-2xl mx-auto">
-            See how we've helped businesses in Bellingham and Burlington grow with better websites, local SEO, and AI automation.
+            See how we&apos;ve helped businesses in Bellingham and Burlington grow with better websites, local SEO, and AI automation.
           </p>
         </div>
       </section>
@@ -114,7 +114,7 @@ export default function CaseStudiesPage() {
             href="mailto:hello@meridianai.co?subject=Case%20Study%20Inquiry&body=Hi%20Meridian%20AI%2C%0A%0AI%20saw%20your%20case%20studies%20and%20I'm%20interested%20in%20similar%20results.%0A%0AMy%20business%3A%20%0A%0AWhat%20service(s)%20are%20you%20interested%20in%3F"
             className="inline-flex items-center gap-2 bg-brand-600 text-white font-semibold px-8 py-4 rounded-lg hover:bg-brand-700 transition-colors"
           >
-            Let's Talk →
+            Let&apos;s Talk →
           </a>
         </div>
       </section>

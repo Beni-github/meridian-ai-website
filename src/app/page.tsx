@@ -477,7 +477,7 @@ export default function Home() {
           <div className="text-center mb-12">
             <p className="text-brand-600 font-semibold uppercase tracking-wider text-sm mb-3">CASE STUDIES</p>
             <h2 className="text-4xl font-bold text-gray-900 mb-4">Real Results for Real Businesses</h2>
-            <p className="text-gray-500 max-w-xl mx-auto">See how we've helped businesses in Bellingham and Burlington grow with better websites, local SEO, and AI.</p>
+            <p className="text-gray-500 max-w-xl mx-auto">See how we&apos;ve helped businesses in Bellingham and Burlington grow with better websites, local SEO, and AI.</p>
           </div>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
             {caseStudies.map(({ slug, title, industry, summary, result, image }) => (
@@ -518,7 +518,7 @@ export default function Home() {
                 <div className="flex items-center gap-1 mb-4">
                   {[...Array(5)].map((_, j) => (<span key={j} className="text-yellow-400 text-lg">★</span>))}
                 </div>
-                <blockquote className="text-gray-700 mb-6 leading-relaxed">"{quote}"</blockquote>
+                <blockquote className="text-gray-700 mb-6 leading-relaxed">&ldquo;{quote}&rdquo;</blockquote>
                 <div className="flex items-center justify-between">
                   <div>
                     <p className="font-semibold text-gray-900">{author}</p>
@@ -610,7 +610,7 @@ export default function Home() {
           </div>
           <h2 className="text-4xl md:text-5xl font-bold mb-4 animate-slide-up">Ready to Get Started?</h2>
           <p className="text-brand-200 mb-12 text-lg md:text-xl leading-relaxed animate-slide-up" style={{ animationDelay: '0.1s' }}>
-            Send us a message and we'll get back to you within 2 hours. Let's discuss your project and send a custom proposal — no obligation.
+            Send us a message and we&apos;ll get back to you within 2 hours. Let&apos;s discuss your project and send a custom proposal — no obligation.
           </p>
           <div className="glass-dark rounded-2xl p-8 md:p-10 mb-8 max-w-md mx-auto animate-scale-in" style={{ animationDelay: '0.2s' }}>
             <h3 className="font-bold text-xl mb-6">Get a Free Quote</h3>
