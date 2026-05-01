@@ -1,7 +1,10 @@
-"use client";
-
 import Link from "next/link";
-import { Button } from "@/components/ui";
+import Image from "next/image";
+
+export const metadata = {
+  title: "Case Studies — Meridian AI",
+  description: "See how Meridian AI has helped real businesses — restaurants, dental practices, and more — grow with better websites, local SEO, and AI automation.",
+};
 
 const caseStudies = [
   {
@@ -53,12 +56,12 @@ export default function CaseStudiesPage() {
       <nav className="sticky top-0 z-40 bg-white/95 backdrop-blur-sm shadow-sm border-b border-gray-100">
         <div className="max-w-6xl mx-auto px-6 py-4 flex items-center justify-between">
           <Link href="/" className="flex items-center gap-2">
-            <img src="/fenn_suit.jpg" alt="Meridian AI" className="w-9 h-9 rounded-lg object-cover shadow-sm" />
+            <Image src="/fenn_suit.jpg" alt="Meridian AI" width={36} height={36} className="rounded-lg object-cover shadow-sm" />
             <span className="font-bold text-xl text-gray-900">Meridian AI</span>
           </Link>
           <div className="flex items-center gap-4">
             <Link href="/" className="text-sm font-medium text-gray-600 hover:text-brand-600 transition-colors">Back to Home</Link>
-            <Button variant="primary" className="text-sm py-2" onClick={() => document.getElementById("contact")?.scrollIntoView({ behavior: "smooth" })}>Get Started</Button>
+            <a href="/#contact" className="bg-brand-600 text-white px-6 py-2 rounded-lg font-semibold hover:bg-brand-700 transition-colors text-sm">Get Started</a>
           </div>
         </div>
       </nav>
@@ -82,7 +85,7 @@ export default function CaseStudiesPage() {
               <Link href={`/case-studies/${slug}`} key={slug}>
                 <article className="bg-white rounded-xl border border-gray-200 overflow-hidden shadow-sm hover:shadow-lg hover:border-brand-200 transition-all duration-200 cursor-pointer group">
                   <div className="aspect-video overflow-hidden">
-                    <img src={image} alt={title} className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" />
+                    <Image src={image} alt={title} width={600} height={338} className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" />
                   </div>
                   <div className="p-8">
                     <div className="flex items-center gap-3 mb-3">
@@ -127,7 +130,7 @@ export default function CaseStudiesPage() {
             <Link href="/privacy-policy" className="hover:text-white transition-colors">Privacy Policy</Link>
             <Link href="/terms-of-service" className="hover:text-white transition-colors">Terms of Service</Link>
           </div>
-          <p className="mt-4 text-brand-400">© {new Date().getFullYear()} Meridian AI LLC. Bellingham, WA + Burlington, WA</p>
+          <p className="mt-4 text-brand-400">© {new Date().getFullYear()} Meridian AI LLC. Bellingham, WA · Burlington, WA · Pacific Northwest</p>
         </div>
       </footer>
     </main>

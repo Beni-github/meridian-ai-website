@@ -1,6 +1,7 @@
 "use client";
 import { useState, useEffect } from "react";
 import Link from "next/link";
+import Image from "next/image";
 
 function Button({
   variant = "primary",
@@ -41,15 +42,16 @@ function TabNav({ tabs, active, onChange }: { tabs: string[]; active: number; on
   );
 }
 
-function PricingCard({ name, price, period, desc, features, highlight, onSelect }: { name: string; price: string; period?: string; desc: string; features: string[]; highlight?: boolean; onSelect: () => void }) {
+function PricingCard({ name, price, period, suffix, desc, features, highlight, onSelect }: { name: string; price: string; period?: string; suffix?: string; desc: string; features: string[]; highlight?: boolean; onSelect: () => void }) {
   return (
     <Card className={`flex flex-col relative ${highlight ? "border-brand-500 ring-2 ring-brand-100" : ""}`} hover={false}>
       {highlight && <div className="absolute -top-3 left-1/2 -translate-x-1/2 bg-brand-600 text-white text-xs font-bold px-4 py-1 rounded-full whitespace-nowrap">Most Popular</div>}
       <h3 className="text-xl font-bold text-gray-900 mb-1">{name}</h3>
       <p className="text-gray-500 text-sm mb-4">{desc}</p>
-      <div className="mb-2">
+      <div className="mb-2 flex items-baseline gap-1">
         <span className="text-4xl font-bold text-gray-900">{price}</span>
-        {period && <span className="text-gray-400 text-sm ml-1">{period}</span>}
+        {period && <span className="text-gray-400 text-sm">{period}</span>}
+        {suffix && <span className="text-xs text-gray-400 font-medium">{suffix}</span>}
       </div>
       <ul className="space-y-2 mb-8 flex-1">
         {features.map((f) => (
@@ -178,6 +180,7 @@ const pricingTiers = [
     name: "Basic Website",
     price: "$500",
     period: "–$1,200",
+    suffix: "one-time",
     desc: "5-page professional website for local businesses.",
     features: ["5 pages", "Mobile responsive", "Contact form", "Basic SEO", "1 revision round", "5–7 day delivery"],
   },
@@ -185,6 +188,7 @@ const pricingTiers = [
     name: "Professional",
     price: "$2,000",
     period: "–$5,000",
+    suffix: "one-time",
     desc: "Full website with local SEO built in.",
     features: ["5–15 pages", "Custom design", "Full local SEO", "Contact forms", "2 revision rounds", "2–3 week delivery"],
     highlight: true,
@@ -193,6 +197,7 @@ const pricingTiers = [
     name: "Premium + AI",
     price: "$5,000",
     period: "–$15,000",
+    suffix: "one-time",
     desc: "Website, SEO, and AI agent deployment.",
     features: ["Everything in Professional", "OpenClaw/Hermes AI agent", "WhatsApp & email integration", "Morning briefings", "30 days priority support"],
   },
@@ -282,14 +287,14 @@ export default function Home() {
       <nav className={`sticky top-0 z-40 transition-all duration-300 ${scrolled ? "bg-white/95 backdrop-blur-sm shadow-sm border-b border-gray-100" : "bg-white"}`}>
         <div className="max-w-6xl mx-auto px-6 py-4 flex items-center justify-between">
           <div className="flex items-center gap-2">
-            <img src="/fenn_suit.jpg" alt="Meridian AI" className="w-9 h-9 rounded-lg object-cover shadow-sm" />
+            <Image src="/fenn_suit.jpg" alt="Meridian AI" width={36} height={36} className="rounded-lg object-cover shadow-sm" />
             <div className="flex flex-col">
               <span className="font-bold text-xl text-gray-900 leading-tight">Meridian AI</span>
               <span className="text-xs text-gray-400 leading-none">Bellingham, WA</span>
             </div>
           </div>
           <div className="hidden md:flex items-center gap-8 text-sm font-medium text-gray-600">
-            {[["Services", "services"], ["Case Studies", "case-studies"], ["How It Works", "process"], ["FAQ", "faq"]].map(([label, id]) => (
+            {[["Services", "services"], ["Pricing", "pricing"], ["Case Studies", "case-studies"], ["How It Works", "process"], ["FAQ", "faq"]].map(([label, id]) => (
               <button key={id} onClick={() => scrollTo(id)} className="hover:text-brand-600 transition-colors">{label}</button>
             ))}
             <Link href="/blog" className="hover:text-brand-600 transition-colors">Blog</Link>
@@ -317,7 +322,7 @@ export default function Home() {
         <div className="absolute inset-0 opacity-[0.03]" style={{ backgroundImage: `url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='1'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E")` }} />
         <div className="max-w-4xl mx-auto text-center relative z-10">
           <div className="flex justify-center mb-8 animate-fade-in">
-            <img src="/fenn_suit.jpg" alt="Meridian AI mascot Fenn the Fox" className="w-28 h-28 rounded-2xl object-cover shadow-2xl border-4 border-white/20 animate-float" />
+            <Image src="/fenn_suit.jpg" alt="Meridian AI mascot Fenn the Fox" width={112} height={112} className="rounded-2xl object-cover shadow-2xl border-4 border-white/20 animate-float" />
           </div>
           <div className="inline-flex items-center gap-2 bg-white/10 border border-white/20 rounded-full px-4 py-1.5 text-sm font-medium mb-8 animate-fade-in">
             <span className="relative flex h-2 w-2">
@@ -332,7 +337,7 @@ export default function Home() {
             <span className="text-transparent bg-clip-text bg-gradient-to-r from-brand-200 to-brand-100">Built for Local. Powered by AI.</span>
           </h1>
           <p className="text-xl md:text-2xl text-brand-100 mb-12 max-w-2xl mx-auto leading-relaxed animate-slide-up" style={{ animationDelay: '0.1s' }}>
-            Professional websites, local SEO, and AI agent deployment for businesses in Bellingham and Burlington, WA. One vendor, full stack.
+            Professional websites, local SEO, and AI agent deployment for Pacific Northwest businesses. One vendor, full stack.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center animate-slide-up" style={{ animationDelay: '0.2s' }}>
             <Button variant="secondary" className="bg-white text-brand-700 hover:bg-brand-50 border-0 text-lg py-4 px-10 shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-0.5" onClick={() => scrollTo("contact")}>
@@ -343,7 +348,7 @@ export default function Home() {
             </Button>
           </div>
           <div className="mt-16 flex flex-wrap justify-center gap-8 text-brand-200 text-sm animate-fade-in" style={{ animationDelay: '0.4s' }}>
-            {[["No Monthly Fees on Build", "✓"], ["Bellingham & Burlington Focused", "✓"], ["1–3 Week Delivery", "✓"]].map(([label, icon]) => (
+            {[["No Monthly Fees on Build", "✓"], ["Pacific Northwest Focused", "✓"], ["1–3 Week Delivery", "✓"]].map(([label, icon]) => (
               <span key={label} className="flex items-center gap-2">
                 <svg className="w-5 h-5 text-green-400" fill="currentColor" viewBox="0 0 20 20"><path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" /></svg>
                 {label}
@@ -484,7 +489,7 @@ export default function Home() {
               <Link href={`/case-studies/${slug}`} key={slug}>
                 <Card className="overflow-hidden p-0 hover-lift cursor-pointer group">
                   <div className="aspect-video overflow-hidden">
-                    <img src={image} alt={title} className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" />
+                    <Image src={image} alt={title} width={600} height={338} className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" />
                   </div>
                   <div className="p-6">
                     <span className="text-xs font-bold text-brand-600 uppercase tracking-wider">{industry}</span>
@@ -605,7 +610,7 @@ export default function Home() {
         </div>
         <div className="max-w-3xl mx-auto text-center relative z-10">
           <div className="flex justify-center mb-6">
-            <img src="/fenn_suit.jpg" alt="Meridian AI" className="w-20 h-20 rounded-xl object-cover shadow-lg border-2 border-white/20" />
+            <Image src="/fenn_suit.jpg" alt="Meridian AI" width={80} height={80} className="rounded-xl object-cover shadow-lg border-2 border-white/20" />
           </div>
           <h2 className="text-4xl md:text-5xl font-bold mb-4 animate-slide-up">Ready to Get Started?</h2>
           <p className="text-brand-200 mb-12 text-lg md:text-xl leading-relaxed animate-slide-up" style={{ animationDelay: '0.1s' }}>
@@ -639,7 +644,7 @@ export default function Home() {
         <div className="max-w-6xl mx-auto">
           <div className="flex flex-col md:flex-row justify-between items-center gap-6">
             <div className="flex items-center gap-2">
-              <img src="/fenn_suit.jpg" alt="Meridian AI" className="w-8 h-8 rounded-lg object-cover" />
+              <Image src="/fenn_suit.jpg" alt="Meridian AI" width={32} height={32} className="rounded-lg object-cover" />
               <span className="font-bold text-lg text-white">Meridian AI LLC</span>
             </div>
             <div className="flex gap-6 text-sm">

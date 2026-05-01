@@ -1,4 +1,10 @@
 import Link from "next/link";
+import Image from "next/image";
+
+export const metadata = {
+  title: "Services — Meridian AI",
+  description: "Web design, local SEO, and AI agent deployment for Pacific Northwest businesses. Transparent pricing from $500 to $15,000.",
+};
 
 const services = [
   {
@@ -79,7 +85,7 @@ export default function ServicesPage() {
       <nav className="sticky top-0 z-40 bg-white/95 backdrop-blur-sm shadow-sm border-b border-gray-100">
         <div className="max-w-6xl mx-auto px-6 py-4 flex items-center justify-between">
           <Link href="/" className="flex items-center gap-2">
-            <img src="/fenn_suit.jpg" alt="Meridian AI" className="w-9 h-9 rounded-lg object-cover shadow-sm" />
+            <Image src="/fenn_suit.jpg" alt="Meridian AI" width={36} height={36} className="rounded-lg object-cover shadow-sm" />
             <span className="font-bold text-xl text-gray-900">Meridian AI</span>
           </Link>
           <div className="flex items-center gap-4">
@@ -129,7 +135,7 @@ export default function ServicesPage() {
 
               {/* Image + Pricing */}
               <div className={idx % 2 === 1 ? "lg:order-1" : ""}>
-                <img src={service.image} alt={service.name} className="w-full h-64 object-cover rounded-xl mb-8 shadow-md" />
+                <Image src={service.image} alt={service.name} width={800} height={320} className="w-full h-64 object-cover rounded-xl mb-8 shadow-md" />
 
                 {/* Pricing Tiers */}
                 <div className="space-y-4">
@@ -184,7 +190,7 @@ export default function ServicesPage() {
             <Link href="/privacy-policy" className="hover:text-white transition-colors">Privacy Policy</Link>
             <Link href="/terms-of-service" className="hover:text-white transition-colors">Terms of Service</Link>
           </div>
-          <p className="mt-4 text-brand-400">© {new Date().getFullYear()} Meridian AI LLC. Bellingham, WA + Burlington, WA</p>
+          <p className="mt-4 text-brand-400">© {new Date().getFullYear()} Meridian AI LLC. Bellingham, WA · Burlington, WA · Pacific Northwest</p>
         </div>
       </footer>
     </main>

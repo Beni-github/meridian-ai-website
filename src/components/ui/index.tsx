@@ -1,3 +1,5 @@
+"use client";
+
 // UI Components
 export function Button({
   variant = "primary",

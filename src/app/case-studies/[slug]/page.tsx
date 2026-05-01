@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Image from "next/image";
 import { notFound } from "next/navigation";
 
 const caseStudiesData: Record<string, {
@@ -80,7 +81,7 @@ export default async function CaseStudyPage({ params }: { params: Promise<{ slug
       <nav className="sticky top-0 z-40 bg-white/95 backdrop-blur-sm shadow-sm border-b border-gray-100">
         <div className="max-w-6xl mx-auto px-6 py-4 flex items-center justify-between">
           <Link href="/" className="flex items-center gap-2">
-            <img src="/fenn_suit.jpg" alt="Meridian AI" className="w-9 h-9 rounded-lg object-cover shadow-sm" />
+            <Image src="/fenn_suit.jpg" alt="Meridian AI" width={36} height={36} className="rounded-lg object-cover shadow-sm" />
             <span className="font-bold text-xl text-gray-900">Meridian AI</span>
           </Link>
           <div className="flex items-center gap-4">
@@ -104,7 +105,7 @@ export default async function CaseStudyPage({ params }: { params: Promise<{ slug
 
       {/* Hero Image */}
       <div className="max-w-6xl mx-auto px-6 -mt-8">
-        <img src={study.image} alt={study.title} className="w-full h-64 md:h-96 object-cover rounded-xl shadow-lg" />
+        <Image src={study.image} alt={study.title} width={800} height={450} className="w-full h-64 md:h-96 object-cover rounded-xl shadow-lg" />
       </div>
 
       {/* Content */}
@@ -180,7 +181,7 @@ export default async function CaseStudyPage({ params }: { params: Promise<{ slug
       <footer className="bg-brand-900 text-brand-200 py-8 px-6">
         <div className="max-w-6xl mx-auto text-center text-sm">
           <Link href="/" className="hover:text-white transition-colors">← Back to Home</Link>
-          <p className="mt-4 text-brand-400">© {new Date().getFullYear()} Meridian AI LLC. Bellingham, WA + Burlington, WA</p>
+          <p className="mt-4 text-brand-400">© {new Date().getFullYear()} Meridian AI LLC. Bellingham, WA · Burlington, WA · Pacific Northwest</p>
         </div>
       </footer>
     </main>

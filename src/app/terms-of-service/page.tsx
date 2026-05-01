@@ -1,5 +1,10 @@
-"use client";
 import Link from "next/link";
+import Image from "next/image";
+
+export const metadata = {
+  title: "Terms of Service — Meridian AI",
+  description: "The terms and conditions governing your use of Meridian AI LLC's website and services.",
+};
 
 export default function TermsOfService() {
   return (
@@ -8,7 +13,7 @@ export default function TermsOfService() {
       <header className="bg-brand-900 text-white py-6 px-6">
         <div className="max-w-4xl mx-auto flex items-center justify-between">
           <Link href="/" className="flex items-center gap-2">
-            <img src="/fenn_suit.jpg" alt="Meridian AI" className="w-8 h-8 rounded-lg object-cover" />
+            <Image src="/fenn_suit.jpg" alt="Meridian AI" width={32} height={32} className="rounded-lg object-cover" />
             <span className="font-bold text-lg">Meridian AI LLC</span>
           </Link>
           <Link href="/" className="text-sm hover:text-brand-300 transition-colors">← Back to Home</Link>
@@ -218,7 +223,7 @@ export default function TermsOfService() {
             <Link href="/privacy-policy" className="hover:text-white transition-colors">Privacy Policy</Link>
             <Link href="/terms-of-service" className="hover:text-white transition-colors">Terms of Service</Link>
           </div>
-          <p className="text-brand-400">© {new Date().getFullYear()} Meridian AI LLC. Bellingham, WA + Burlington, WA</p>
+          <p className="text-brand-400">© {new Date().getFullYear()} Meridian AI LLC. Bellingham, WA · Burlington, WA · Pacific Northwest</p>
         </div>
       </footer>
     </main>
