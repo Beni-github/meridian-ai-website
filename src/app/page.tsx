@@ -148,24 +148,21 @@ const caseStudies = [
   },
 ];
 
-const testimonials = [
+const projectScenarios = [
   {
-    quote: "Our landing page went live in 6 days. Clean design, mobile-friendly, and we're getting inquiries from local customers we weren't reaching before.",
-    author: "Sarah Rodriguez",
-    business: "Rodriguez Home Services, Bellingham WA",
-    service: "Landing Page",
+    scenario: "A local service business in the Pacific Northwest attracts new customers through an optimized Google Business Profile, fast-loading mobile website, and local keyword targeting — appearing in the top 3 search results for their service area.",
+    type: "Website + Local SEO",
+    benefit: "Steady stream of organic local leads",
   },
   {
-    quote: "Full business website with 8 pages, contact forms, and SEO setup — delivered in 2 weeks. The custom design felt exactly like our brand, not a template.",
-    author: "Elena Kowalski",
-    business: "Kowalski Legal Group, Burlington WA",
-    service: "Business Website",
+    scenario: "A dental practice reduces missed appointments by 40% with automated SMS reminders, online booking integration, and an AI agent that follows up on outstanding treatment plans via email.",
+    type: "AI Automation",
+    benefit: "40% reduction in missed appointments",
   },
   {
-    quote: "Our Google ranking improved within 6 weeks. New patients are finding us through search instead of relying on referrals.",
-    author: "Dr. Amanda Chen",
-    business: "Bellingham Family Dental",
-    service: "Local SEO + Website",
+    scenario: "A restaurant owner saves 3+ hours per week by deploying an AI agent that triages inbox inquiries, drafts appointment confirmations, and delivers a morning inventory briefing — all without touching the phone.",
+    type: "AI Agent Deployment",
+    benefit: "3+ hours reclaimed per week",
   },
 ];
 
@@ -286,7 +283,10 @@ export default function Home() {
         <div className="max-w-6xl mx-auto px-6 py-4 flex items-center justify-between">
           <div className="flex items-center gap-2">
             <img src="/fenn_suit.jpg" alt="Meridian AI" className="w-9 h-9 rounded-lg object-cover shadow-sm" />
-            <span className="font-bold text-xl text-gray-900">Meridian AI</span>
+            <div className="flex flex-col">
+              <span className="font-bold text-xl text-gray-900 leading-tight">Meridian AI</span>
+              <span className="text-xs text-gray-400 leading-none">Bellingham, WA</span>
+            </div>
           </div>
           <div className="hidden md:flex items-center gap-8 text-sm font-medium text-gray-600">
             {[["Services", "services"], ["Case Studies", "case-studies"], ["How It Works", "process"], ["FAQ", "faq"]].map(([label, id]) => (
@@ -324,7 +324,7 @@ export default function Home() {
               <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75" />
               <span className="relative inline-flex rounded-full h-2 w-2 bg-green-400" />
             </span>
-            Serving Bellingham & Burlington, WA
+            Pacific Northwest — Web Design, SEO & AI
           </div>
           <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold leading-tight mb-6 animate-slide-up">
             Your Business.
@@ -357,7 +357,7 @@ export default function Home() {
       <section className="bg-white border-b border-gray-200 py-8 px-6">
         <div className="max-w-6xl mx-auto">
           <div className="flex flex-wrap justify-center gap-8 md:gap-16 text-center">
-            {[["Pricing", "One-time options"], ["Setup Time", "1–3 weeks"], ["Focus", "Bellingham & Burlington"], ["AI", "OpenClaw / Hermes"]].map(([label, value]) => (
+            {[["Pricing", "One-time options"], ["Setup Time", "1–3 weeks"], ["Focus", "Pacific Northwest"], ["AI", "OpenClaw / Hermes"]].map(([label, value]) => (
               <div key={label}><div className="text-2xl font-bold text-brand-600">{value}</div><div className="text-sm text-gray-500">{label}</div></div>
             ))}
           </div>
@@ -505,30 +505,29 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Testimonials */}
+      {/* Project Scenarios */}
       <section className="py-20 px-6 bg-gradient-to-b from-white to-gray-50">
         <div className="max-w-6xl mx-auto">
           <div className="text-center mb-12">
-            <p className="text-brand-600 font-semibold uppercase tracking-wider text-sm mb-3">CLIENT SUCCESS</p>
-            <h2 className="text-4xl font-bold text-gray-900 mb-4">What Our Clients Say</h2>
+            <p className="text-brand-600 font-semibold uppercase tracking-wider text-sm mb-3">PROJECT SCENARIOS</p>
+            <h2 className="text-4xl font-bold text-gray-900 mb-4">Illustrative Examples of What We Build</h2>
+            <p className="text-gray-500 max-w-xl mx-auto">The scenarios below represent types of projects we take on. Results vary based on individual business circumstances and market conditions.</p>
           </div>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-            {testimonials.map(({ quote, author, business, service }, i) => (
+            {projectScenarios.map(({ scenario, type, benefit }, i) => (
               <Card key={i} className="hover-lift">
-                <div className="flex items-center gap-1 mb-4">
-                  {[...Array(5)].map((_, j) => (<span key={j} className="text-yellow-400 text-lg">★</span>))}
+                <div className="flex items-center gap-2 mb-4">
+                  <span className="w-8 h-8 rounded-full bg-brand-100 flex items-center justify-center text-brand-600 text-sm font-bold">{i + 1}</span>
+                  <span className="text-xs font-medium text-brand-600 bg-brand-50 px-3 py-1 rounded-full">{type}</span>
                 </div>
-                <blockquote className="text-gray-700 mb-6 leading-relaxed">&ldquo;{quote}&rdquo;</blockquote>
-                <div className="flex items-center justify-between">
-                  <div>
-                    <p className="font-semibold text-gray-900">{author}</p>
-                    <p className="text-sm text-gray-500">{business}</p>
-                  </div>
-                  <span className="text-xs font-medium text-brand-600 bg-brand-50 px-3 py-1 rounded-full">{service}</span>
+                <p className="text-gray-600 mb-4 leading-relaxed text-sm">{scenario}</p>
+                <div className="border-t border-gray-100 pt-4">
+                  <p className="text-sm font-semibold text-green-600">{benefit}</p>
                 </div>
               </Card>
             ))}
           </div>
+          <p className="text-center text-xs text-gray-400 mt-8">Results shown are illustrative examples. Actual outcomes depend on individual business circumstances and market conditions.</p>
         </div>
       </section>
 
@@ -654,7 +653,7 @@ export default function Home() {
           </div>
           <div className="border-t border-brand-800 mt-8 pt-8 text-center text-sm">
             <p>© {new Date().getFullYear()} Meridian AI LLC. All rights reserved.</p>
-            <p className="mt-2 text-brand-400">Bellingham, WA + Burlington, WA</p>
+            <p className="mt-2 text-brand-400">Bellingham, WA · Burlington, WA · Pacific Northwest</p>
           </div>
         </div>
       </footer>
